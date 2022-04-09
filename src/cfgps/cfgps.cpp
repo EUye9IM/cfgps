@@ -159,6 +159,7 @@ void Parser::readFile(const char *file_path) {
 			// something wrong
 		}
 	} // file line loop
+	fclose(fp);
 }
 bool Parser::success() const { return _b_sucess; }
 
