@@ -115,7 +115,7 @@ void Parser::readFile(const char *file_path) {
 		} else if (sscanf(buf2, " %[^= \t] = %[^\n]", buf, buf3) == 2) {
 			// clear blank
 			int len = strlen(buf3);
-			while (buf3[len - 1] == ' ' || buf3[len - 1] != '\t')
+			while (buf3[len - 1] == ' ' || buf3[len - 1] == '\t')
 				len--;
 			buf3[len] = 0;
 			// buf is key
