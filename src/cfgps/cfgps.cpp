@@ -128,7 +128,8 @@ void Parser::readFile(const char *file_path) {
 					switch (p_rule->type) {
 					case Type::INT:
 						int ret, val;
-						ret = sscanf(buf3, "%d", &val);
+						char c;
+						ret = sscanf(buf3, "%d%c", &val,&c);
 						if (1 != ret)
 							_b_sucess = false;
 						else {
