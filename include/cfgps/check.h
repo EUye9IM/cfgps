@@ -5,9 +5,11 @@
 #include <cfgps/cfgps.h>
 #include <cstring>
 namespace cfgps {
-bool _checkStrVerify(cfgps::Value val);
+bool _checkStrVerify_YNTF(cfgps::Value val);
 bool _checkStrVerify_Y(cfgps::Value val);
 bool _checkStrVerify_N(cfgps::Value val);
+bool _checkStrVerify_T(cfgps::Value val);
+bool _checkStrVerify_F(cfgps::Value val);
 
 bool _checkStrIpaddr(cfgps::Value val);
 } // namespace cfgps
@@ -31,8 +33,8 @@ bool _checkStrIpaddr(cfgps::Value val);
 	}
 #endif
 
-#ifndef CHECK_STR_VERIFY
-#define CHECK_STR_VERIFY cfgps::_checkStrVerify
+#ifndef CHECK_STR_VERIFY_YNTF
+#define CHECK_STR_VERIFY_YNTF cfgps::_checkStrVerify_YNTF
 #endif
 
 #ifndef CHECK_STR_VERIFY_Y
@@ -41,6 +43,14 @@ bool _checkStrIpaddr(cfgps::Value val);
 
 #ifndef CHECK_STR_VERIFY_N
 #define CHECK_STR_VERIFY_N cfgps::_checkStrVerify_N
+#endif
+
+#ifndef CHECK_STR_VERIFY_T
+#define CHECK_STR_VERIFY_T cfgps::_checkStrVerify_T
+#endif
+
+#ifndef CHECK_STR_VERIFY_F
+#define CHECK_STR_VERIFY_F cfgps::_checkStrVerify_F
 #endif
 
 #ifndef CHECK_STR_IPADDR

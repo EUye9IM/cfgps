@@ -14,10 +14,11 @@ static char *__strlwr(char *str) {
 	return str;
 }
 namespace cfgps {
-bool _checkStrVerify(cfgps::Value val) {
+bool _checkStrVerify_YNTF(cfgps::Value val) {
 	if (!val.Str)
 		return false;
-	return _checkStrVerify_Y(val) || _checkStrVerify_N(val);
+	return _checkStrVerify_Y(val) || _checkStrVerify_N(val) ||
+		   _checkStrVerify_T(val) || _checkStrVerify_F(val);
 }
 bool _checkStrVerify_Y(cfgps::Value val) {
 	if (!val.Str)
@@ -29,6 +30,7 @@ bool _checkStrVerify_Y(cfgps::Value val) {
 	delete[] temp;
 	return ans;
 }
+
 bool _checkStrVerify_N(cfgps::Value val) {
 	if (!val.Str)
 		return false;
@@ -36,6 +38,28 @@ bool _checkStrVerify_N(cfgps::Value val) {
 	strcpy(temp, val.Str);
 	__strlwr(temp);
 	bool ans = !strcmp(temp, "no") || !strcmp(temp, "n");
+	delete[] temp;
+	return ans;
+}
+
+bool _checkStrVerify_T(cfgps::Value val) {
+	if (!val.Str)
+		return false;
+	char *temp = new char[strlen(val.Str)];
+	strcpy(temp, val.Str);
+	__strlwr(temp);
+	bool ans = !strcmp(temp, "true") || !strcmp(temp, "t");
+	delete[] temp;
+	return ans;
+}
+
+bool _checkStrVerify_F(cfgps::Value val) {
+	if (!val.Str)
+		return false;
+	char *temp = new char[strlen(val.Str)];
+	strcpy(temp, val.Str);
+	__strlwr(temp);
+	bool ans = !strcmp(temp, "false") || !strcmp(temp, "f");
 	delete[] temp;
 	return ans;
 }

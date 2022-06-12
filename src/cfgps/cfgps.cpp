@@ -82,6 +82,8 @@ static bool _matchKay(const char *sec1, const char *sec2, const char *key1,
 			return true;
 	if (nullptr == sec2 || 0 == *sec2)
 		return false;
+	if (nullptr == sec1 || 0 == *sec1)
+		return false;
 	if (!strcmp(sec1, sec2))
 		return true;
 	return false;
