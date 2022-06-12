@@ -1,7 +1,7 @@
 // agps v1.1
 #pragma once
-#ifndef AGPS_AGPS_H
-#define AGPS_AGPS_H
+#ifndef CFGPS_CFGPS_H
+#define CFGPS_CFGPS_H
 
 #include <cfgps/const_str.h>
 namespace cfgps {
